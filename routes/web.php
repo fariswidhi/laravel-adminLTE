@@ -23,3 +23,4 @@ Route::get('/menu', function () {
 });
 
 Route::resource('/dosen', 'DosenController');
+Route::resource('/mahasiswa', 'MahasiswaController');

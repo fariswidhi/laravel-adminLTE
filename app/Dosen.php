@@ -7,4 +7,6 @@ use Illuminate\Database\Eloquent\Model;
 class Dosen extends Model
 {
     //
+    protected $fillable = ['nama','nip','tgl_lahir','jenjang_pendidikan'];
+
 }

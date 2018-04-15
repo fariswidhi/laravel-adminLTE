@@ -341,8 +341,20 @@
             </span>
           </a>
           <ul class="treeview-menu">
-            <li class="active"><a href="index.html"><i class="fa fa-circle-o"></i> Lihat</a></li>
-            <li><a href="index2.html"><i class="fa fa-circle-o"></i> Tambah</a></li>
+            <li class="active"><a href="{{ url('/dosen') }}"><i class="fa fa-circle-o"></i> Lihat</a></li>
+            <li><a href="{{ url('dosen/create') }}"><i class="fa fa-circle-o"></i> Tambah</a></li>
+          </ul>
+        </li>
+        <li class="active treeview">
+          <a href="#">
+            <i class="fa fa-dashboard"></i> <span>Dosen</span>
+            <span class="pull-right-container">
+              <i class="fa fa-angle-left pull-right"></i>
+            </span>
+          </a>
+          <ul class="treeview-menu">
+            <li class="active"><a href="{{ url('/dosen') }}"><i class="fa fa-circle-o"></i> Lihat</a></li>
+            <li><a href="{{ url('dosen/create') }}"><i class="fa fa-circle-o"></i> Tambah</a></li>
           </ul>
         </li>
       </ul>
@@ -354,8 +366,7 @@
   <div class="content-wrapper">
   <section class="content-header">
       <h1>
-        Simple Tables
-        <small>preview of simple tables</small>
+        @yield('title')
       </h1>
       <ol class="breadcrumb">
         <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
@@ -364,7 +375,17 @@
       </ol>
     </section>
   <div class="content">
-    
+  @if (session('success'))
+    @component('messages.success')
+        {{session('success')}}
+    @endcomponent
+  @endif
+  @if (session('danger'))
+    @component('messages.danger')
+        {{session('danger')}}
+    @endcomponent
+  @endif
+
 @yield('content')
   </div>
     <!-- /.content -->

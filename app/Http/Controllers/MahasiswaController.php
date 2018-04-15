@@ -2,13 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Dosen as Obj;
+use App\Mahasiswa as Obj;
 use Illuminate\Http\Request;
 
-class DosenController extends Controller
+class MahasiswaController extends Controller
 {
 
-    private $title = "Dosen";
+    private $title = "Mahasiswa";
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +21,8 @@ class DosenController extends Controller
         $data = Obj::paginate(10);
         $no = 1;
         $title = $this->title;
-        $page = "Data Dosen";
-        return view('dosen/index',compact('data','no','title','page'));
+        $page = "Data Mahasiswa";
+        return view('Mahasiswa/index',compact('data','no','title','page'));
 
 
 
@@ -39,8 +39,8 @@ class DosenController extends Controller
     {
         //
         $title = $this->title;
-        $page = "Tambah Data Dosen";
-        return view('dosen/create',compact('page','title'));
+        $page = "Tambah Data Mahasiswa";
+        return view('Mahasiswa/create',compact('page','title'));
     }
 
     /**
@@ -62,14 +62,14 @@ class DosenController extends Controller
             $request->session()->flash('status','Data Gagal Disimpan');   
         }
 
-        return redirect('/dosen');
+        return redirect('/Mahasiswa');
 
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Dosen  $dosen
+     * @param  \App\Mahasiswa  $Mahasiswa
      * @return \Illuminate\Http\Response
      */
     public function show(Obj $obj)
@@ -80,7 +80,7 @@ class DosenController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Dosen  $dosen
+     * @param  \App\Mahasiswa  $Mahasiswa
      * @return \Illuminate\Http\Response
      */
     public function edit($param,Obj $obj)
@@ -91,16 +91,16 @@ class DosenController extends Controller
         $title = $this->title;
         // print_r($obj);
 
-        $page = "Edit Data Dosen";
+        $page = "Edit Data Mahasiswa";
         $obj = $obj->find($id);
-        return view('dosen/edit',compact('obj','title','page','param'));
+        return view('Mahasiswa/edit',compact('obj','title','page','param'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Dosen  $dosen
+     * @param  \App\Mahasiswa  $Mahasiswa
      * @return \Illuminate\Http\Response
      */
     public function update($param,Request $request, Obj $obj)
@@ -121,7 +121,7 @@ class DosenController extends Controller
             $request->session()->flash('status','Data Gagal Diubah');   
         }
 
-        return redirect('/dosen');
+        return redirect('/Mahasiswa');
 
 
 
@@ -130,7 +130,7 @@ class DosenController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Dosen  $dosen
+     * @param  \App\Mahasiswa  $Mahasiswa
      * @return \Illuminate\Http\Response
      */
     public function destroy($id,Obj $obj,Request $request)
